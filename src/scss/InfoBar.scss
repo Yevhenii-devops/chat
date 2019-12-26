@@ -1,0 +1,31 @@
+@import "variables";
+
+.infoBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $mainBlue;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #d3d3d3;
+    height: 60px;
+    width: 100%;
+  }
+  
+  .leftInnerContainer {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    color: white;
+  }
+  
+  .rightInnerContainer {
+    display: flex;
+    flex: 0.5;
+    justify-content: flex-end;
+    margin-right: 5%;
+  }
+  
+  .onlineIcon {
+    margin-right: 5%;
+  }

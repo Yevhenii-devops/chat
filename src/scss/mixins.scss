@@ -1,0 +1,10 @@
+@mixin button_main($width, $mainBlue) {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: $mainBlue;
+  padding: 20px;
+  display: inline-block;
+  border: none;
+  width: $width;
+}
