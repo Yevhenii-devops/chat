@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+// import QRCode from 'qrcode.react';
 
 import Context from '../../Context';
 
@@ -17,6 +18,7 @@ const ReferalLink = ({ friendName, room, setInviteStatus, setFriendName }) => {
             <form className="formLink">
                 <div>
                     <input className="linkInput" id="link" type="text" value={`${location}/chat?name=${friendName}&room=${room}`} />
+                    {/* <QRCode value={`${location}/chat?name=${friendName}&room=${room}`} /> */}
                 </div>
                 <button className="copyButton" onClick={(event) => {
                     event.preventDefault();
