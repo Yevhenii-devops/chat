@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
-
-import Context from '../../Context';
+import React from 'react';
 
 import '../../scss/style.scss';
 
 const ReferalLink = ({ friendName, room, setInviteStatus, setFriendName }) => {
-    const { location } = useContext(Context);
+
+    const location = window.location.host;
+
     const copy = () => {
         var copyText = document.getElementById("link");
         copyText.select();
