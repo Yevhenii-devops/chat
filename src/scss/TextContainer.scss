@@ -71,6 +71,8 @@
   
   @media (min-width: 320px) and (max-width: 1200px) {
     .textContainer {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      margin-left: 0%;
     }
   }

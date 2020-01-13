@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import queryString from 'query-string';
 import io from "socket.io-client";
 
@@ -18,7 +18,8 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'https://pegionchat.herokuapp.com/';
+  const ENDPOINT = 'http://ec2-18-185-120-89.eu-central-1.compute.amazonaws.com:5000/';
+
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -26,10 +27,10 @@ const Chat = ({ location }) => {
     socket = io(ENDPOINT);
 
     setRoom(room);
-    setName(name)
+    setName(name);
 
-    socket.emit('join', { name, room}, (error) => {
-      if(error) {
+    socket.emit('join', { name, room }, (error) => {
+      if (error) {
         alert(error);
       }
     });
@@ -37,7 +38,7 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on('message', (message) => {
-      setMessages([...messages, message ]);
+      setMessages([...messages, message]);
     });
 
     socket.on('roomData', ({ users }) => {
@@ -55,13 +56,13 @@ const Chat = ({ location }) => {
     var audio = new Audio();
     audio.src = soundFile;
     audio.autoplay = true;
-}
+  }
 
   const sendMessage = (event) => {
     event.preventDefault();
     soundClick();
 
-    if(message) {
+    if (message) {
       socket.emit('sendMessage', message, () => setMessage(''));
     }
   }
@@ -69,11 +70,11 @@ const Chat = ({ location }) => {
   return (
     <div className="outerContainer">
       <div className="container">
-          <InfoBar room={room} />
-          <Messages messages={messages} name={name} />
-          <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+        <InfoBar room={room} />
+        <Messages messages={messages} name={name} />
+        <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
-      <TextContainer users={users} room={room}/>
+      <TextContainer users={users} room={room} />
     </div>
   );
 }
